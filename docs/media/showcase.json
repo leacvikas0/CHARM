@@ -1,0 +1,26 @@
+{
+  "inputs": {
+    "original-smooth.mp4": {
+      "sha256": "b9db7fb46bca1eeebce69f9736a4b82ab782b21ebc49835663b6935ca1d3f0ba",
+      "frames": 300,
+      "fps": 30
+    },
+    "density-retimed.mp4": {
+      "sha256": "780ff153a02416bef2a56b3243c3aa7afa627f5996eb810f9051d6e73ad44365",
+      "frames": 300,
+      "fps": 30
+    }
+  },
+  "comparison_crop_xyxy": [
+    37,
+    147,
+    420,
+    546
+  ],
+  "same_crop_for_both_panels": true,
+  "pose_changes": false,
+  "output_size": [
+    920,
+    530
+  ]
+}

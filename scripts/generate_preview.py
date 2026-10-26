@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image,ImageDraw,ImageFont
 ROOT=Path(__file__).resolve().parents[1]
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--run',default='runs/synthetic_demo');p.add_argument('--output',default='docs/media/timing-demo.gif');args=p.parse_args();run=Path(args.run)
+    p=argparse.ArgumentParser();p.add_argument('--run',default='runs/synthetic_demo');p.add_argument('--output',default='runs/synthetic-timing-demo.gif');args=p.parse_args();run=Path(args.run)
     methods=[('original','Original timing'),('density','Density'),('gesture_subtle','Gesture-aware')];datasets=[]
     for key,label in methods:
         with np.load(run/f'{key}.npz') as d:datasets.append((d['world'][...,:3,3].copy(),d['parents'].copy(),label))

@@ -17,7 +17,7 @@ python -m unittest discover -s tests
 python scripts/demo.py --output runs/check_new
 ```
 
-The preview is reproducible with optional Pillow:
+The separate synthetic skeleton preview can be generated with optional Pillow (the README's real-character showcase uses maintainer-provided videos instead):
 
 ```bash
 python -m pip install -e '.[preview]'
