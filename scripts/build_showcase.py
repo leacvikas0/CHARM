@@ -20,25 +20,22 @@ def main():
     x0=max(0,int(bounds[:,0].min())-25);y0=max(0,int(bounds[:,1].min())-25);x1=min(w,int(bounds[:,2].max())+26);y1=min(h,int(bounds[:,3].max())+26)
     panel_w=460;panel_h=round((y1-y0)/(x1-x0)*panel_w/2)*2;total_h=panel_h+50
     for cap in caps:cap.set(cv2.CAP_PROP_POS_FRAMES,0)
-    command=['ffmpeg','-y','-f','rawvideo','-pix_fmt','bgr24','-s',f'920x{total_h}','-r','30','-i','pipe:0','-an','-c:v','libx264','-preset','fast','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(out/'original-vs-density.mp4')]
+    command=['ffmpeg','-y','-f','rawvideo','-pix_fmt','bgr24','-s',f'920x{total_h}','-r','30','-i','pipe:0','-an','-c:v','libx264','-preset','fast','-crf','16','-pix_fmt','yuv420p','-movflags','+faststart',str(out/'original-vs-density.mp4')]
     images=[]
     with open(out/'showcase_encode.log','w') as log:
         process=subprocess.Popen(command,stdin=subprocess.PIPE,stderr=log)
         for f in range(counts[0]):
             canvas=np.full((total_h,920,3),24,dtype=np.uint8)
-            for i,(cap,label) in enumerate(zip(caps,['ORIGINAL - SMOOTH','DENSITY RETIMING'])):
+            for i,(cap,label) in enumerate(zip(caps,['ORIGINAL - SMOOTH','CHARM - DENSITY'])):
                 ok,im=cap.read();assert ok
                 canvas[50:,i*460:(i+1)*460]=cv2.resize(im[y0:y1,x0:x1],(panel_w,panel_h),interpolation=cv2.INTER_LANCZOS4)
                 cv2.putText(canvas,label,(i*460+16,32),cv2.FONT_HERSHEY_SIMPLEX,.65,(220,240,230),1,cv2.LINE_AA)
             process.stdin.write(canvas.tobytes())
-            small=cv2.resize(canvas,(520,round(total_h*520/920)),interpolation=cv2.INTER_AREA)
-            images.append(Image.fromarray(cv2.cvtColor(small,cv2.COLOR_BGR2RGB)))
+            images.append(Image.fromarray(cv2.cvtColor(canvas,cv2.COLOR_BGR2RGB)))
         process.stdin.close();assert process.wait(timeout=120)==0
     for cap in caps:cap.release()
-    # GIF duration uses 10 ms units: 30/30/40 reproduces 30 frames per second on average.
-    palette=images[0].quantize(colors=96,dither=Image.Dither.NONE)
-    images=[im.quantize(palette=palette,dither=Image.Dither.NONE) for im in images]
-    images[0].save(out/'original-vs-density.gif',save_all=True,append_images=images[1:],duration=[30 if i%3!=2 else 40 for i in range(len(images))],loop=0,optimize=False)
+    # Full-resolution true-color animation, avoiding GIF palette banding/downscaling.
+    images[0].save(out/'original-vs-density.webp',format='WEBP',save_all=True,append_images=images[1:],duration=[33 if i%3!=2 else 34 for i in range(len(images))],loop=0,quality=94,method=4)
     records={}
     for path,name in zip(paths,['original-smooth.mp4','density-retimed.mp4']):
         shutil.copy2(path,out/name);records[name]={'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'frames':counts[0],'fps':30}

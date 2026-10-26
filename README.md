@@ -10,11 +10,21 @@ Pose-preserving retiming and controlled pose experiments for stylized character 
 
 </div>
 
-[![Original smooth character motion versus density retiming](docs/media/original-vs-density.gif)](docs/media/original-vs-density.mp4)
+<h2 align="center">CHARM vs Original</h2>
 
-**Real character showcase:** [watch the full-quality comparison](docs/media/original-vs-density.mp4) · [original smooth motion](docs/media/original-smooth.mp4) · [density-retimed motion](docs/media/density-retimed.mp4).
+<p align="center">
+  <a href="docs/media/original-vs-density.mp4">
+    <img src="docs/media/original-vs-density.webp" alt="Original smooth motion on the left, CHARM density retiming on the right" width="920">
+  </a>
+</p>
 
-Left: original timing. Right: density retiming. Both use the same accepted character poses, camera and lighting; the comparison applies an identical crop to both panels. The MP4s retain all 300 frames at 30 fps. Only the timing changes.
+<p align="center">
+  <a href="docs/media/original-vs-density.mp4"><strong>Watch full-quality video</strong></a> ·
+  <a href="docs/media/original-smooth.mp4">Original</a> ·
+  <a href="docs/media/density-retimed.mp4">CHARM</a>
+</p>
+
+<p align="center"><strong>Left: Original smooth motion · Right: CHARM density retiming.</strong><br>Same accepted poses, camera, lighting and crop. All 300 frames at 30 fps; only the timing changes.</p>
 
 CHARM takes **already-retargeted character motion** and lets you compare timing treatments while keeping complete source poses together. It also provides bounded curve cleanup and protected-joint mixing for pose sources already aligned to the target rig.
 
