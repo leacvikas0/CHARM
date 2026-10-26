@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "motion_sha256": "9ef565be1f80eb954dfb1f4249cce6cf47ec44dd15543f8d7e204e31584aff5a",
+  "frames": 180,
+  "fps": 30.0,
+  "strengths": {
+    "subtle": 0.7,
+    "stronger": 1.25
+  },
+  "max_source_step": 3,
+  "max_source_shift": 5,
+  "events": [
+    {
+      "id": "designed_arm_accent",
+      "peak": 45,
+      "end": 90,
+      "delay": 2.5,
+      "rise": 2.0,
+      "verified": true,
+      "profiles": [
+        "subtle",
+        "stronger"
+      ],
+      "no_freeze_seconds": 0.16666666666666666,
+      "evidence": "Procedurally authored arm-angle key at frame 45; synthetic example, no physical-contact claim."
+    }
+  ]
+}

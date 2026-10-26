@@ -1,0 +1,52 @@
+cff-version: 1.2.0
+message: "If you use CHARM, cite this software and the original research relevant to the techniques you use."
+title: "CHARM: Character-aware Holds and Adaptive Rhythm for Motion"
+type: software
+authors:
+  - name: "leacvikas0"
+version: 0.1.0
+date-released: 2026-10-26
+license: MIT
+url: "https://github.com/leacvikas0/CHARM"
+repository-code: "https://github.com/leacvikas0/CHARM"
+keywords:
+  - animation
+  - motion-retiming
+  - stylization
+  - character-animation
+references:
+  - type: conference-paper
+    title: "Pose-Density-Based Motion Retiming for Anime-Style Tame-Tsume"
+    authors:
+      - family-names: Mukai
+        given-names: Tomohiko
+      - family-names: Okonogi
+        given-names: Hayato
+      - family-names: Maejima
+        given-names: Akinobu
+    year: 2026
+    doi: "10.1145/3829339.3847839"
+  - type: article
+    title: "MoNACA: A System for Anime-like Motion Transfer by Adaptive Partitioning of Articular Trajectories"
+    authors:
+      - family-names: Koroku
+        given-names: Yui
+      - family-names: Fujishiro
+        given-names: Issei
+    year: 2024
+    doi: "10.3756/artsci.23.6_1"
+  - type: article
+    title: "STyMo: Fast and Controllable Few-Shot Motion Style Transfer"
+    authors:
+      - family-names: Ponton
+        given-names: Jose Luis
+      - family-names: Winkler
+        given-names: Alexander
+      - family-names: Kavan
+        given-names: Ladislav
+      - family-names: Ye
+        given-names: Yuting
+      - family-names: Kadlecek
+        given-names: Petr
+    year: 2026
+    doi: "10.1145/3811356"

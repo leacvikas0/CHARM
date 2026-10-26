@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "review_required": false,
+  "fps": 30.0,
+  "meters_per_unit": 1.0,
+  "up_axis": "z",
+  "roles": {
+    "left_hand": "palm.L",
+    "right_hand": "palm.R",
+    "head": "head",
+    "chest": "chest",
+    "left_foot": "foot.L",
+    "right_foot": "foot.R"
+  },
+  "motion_joints": [
+    "root",
+    "spine",
+    "chest",
+    "head",
+    "shoulder.L",
+    "elbow.L",
+    "palm.L",
+    "shoulder.R",
+    "elbow.R",
+    "palm.R",
+    "hip.L",
+    "foot.L",
+    "hip.R",
+    "foot.R"
+  ],
+  "editable_joints": [
+    "spine",
+    "chest",
+    "head",
+    "shoulder.L",
+    "elbow.L",
+    "shoulder.R",
+    "elbow.R"
+  ],
+  "protected_joints": [
+    "root",
+    "palm.L",
+    "palm.R",
+    "hip.L",
+    "foot.L",
+    "hip.R",
+    "foot.R"
+  ],
+  "world_protected_joints": [
+    "root",
+    "foot.L",
+    "foot.R"
+  ],
+  "anchors_frames": [
+    0,
+    45,
+    90,
+    135,
+    179
+  ],
+  "curve_tolerances_degrees": {
+    "spine": 1.5,
+    "chest": 1.5,
+    "head": 1.5,
+    "shoulder.L": 1.5,
+    "elbow.L": 1.5,
+    "shoulder.R": 1.5,
+    "elbow.R": 1.5
+  },
+  "timing": {
+    "density_strength": 0.85,
+    "density_smoothing_seconds": 0.041666666666666664,
+    "anchor_prominence_m": 0.035,
+    "feature_peak_distance_seconds": 0.4,
+    "anchor_separation_seconds": 0.4666666666666667,
+    "max_anchor_gap_seconds": 1.5,
+    "target_anchor_gap_seconds": 1.3333333333333333,
+    "max_hold_seconds": 0.1,
+    "hold_anchor_radius_seconds": 0.13333333333333333
+  },
+  "pose_sources": {}
+}
